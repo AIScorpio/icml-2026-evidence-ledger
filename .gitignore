@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.npm-cache/
+.npmrc
+.DS_Store
+AGENTS.md
+qa/*
+!qa/source-mock.png
+!qa/repaired-desktop-1280.jpg
+!qa/repaired-comparison.jpg
+!qa/repaired-focused-comparison.jpg
+!qa/implementation-expanded.png
+!qa/implementation-comparison-tray.png
+!qa/implementation-mobile.png
+!qa/implementation-mobile-filter.png

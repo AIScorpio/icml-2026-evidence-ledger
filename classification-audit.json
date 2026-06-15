@@ -1,0 +1,726 @@
+{
+  "paper_count": 6631,
+  "source_entry_count": 6799,
+  "oral_duplicate_count": 168,
+  "with_abstract": 6631,
+  "with_manuscript_link": 6631,
+  "with_openreview": 6617,
+  "research_tag_counts": {
+    "LLMs, retrieval & language": 2511,
+    "Data quality, evaluation & synthetic data": 2385,
+    "Robustness, uncertainty & reliability": 2081,
+    "Efficient ML & systems": 1132,
+    "Foundation models & representation learning": 1086,
+    "Optimization, decisions & reinforcement learning": 951,
+    "Multimodal & document intelligence": 772,
+    "Interpretability & explainability": 536,
+    "Agents, reasoning & tool use": 528,
+    "Time series & temporal modeling": 453,
+    "Anomaly, OOD & rare events": 436,
+    "AI for science & healthcare": 417,
+    "Causal & counterfactual learning": 376,
+    "Knowledge graphs & graph learning": 222,
+    "Privacy, federated learning & security": 220,
+    "Tabular & structured data": 118
+  },
+  "direct_banking_tag_counts": {
+    "Regulatory & document intelligence": 73,
+    "Markets, trading & treasury": 23,
+    "Payments, fraud & scams": 13,
+    "Model risk, governance & responsible AI": 9,
+    "Banking intelligence & workflow agents": 3,
+    "Operational, cyber & resilience risk": 3,
+    "Entity resolution & customer identity": 3,
+    "Credit, lending & customer risk": 3,
+    "Insurance & actuarial risk": 2
+  },
+  "inferred_banking_tag_counts": {
+    "Model risk, governance & responsible AI": 4130,
+    "Regulatory & document intelligence": 2911,
+    "Credit, lending & customer risk": 2708,
+    "Banking intelligence & workflow agents": 2672,
+    "Payments, fraud & scams": 1112,
+    "Operational, cyber & resilience risk": 1035,
+    "Entity resolution & customer identity": 987,
+    "AML, KYC & illicit-network risk": 638,
+    "Markets, trading & treasury": 443
+  },
+  "tier_counts": {
+    "A - highest priority": 25,
+    "B - strong transfer potential": 250,
+    "C - useful research enabler": 1404,
+    "D - general ICML catalogue": 4952
+  },
+  "confidence_counts": {
+    "high": 1906,
+    "medium": 2982,
+    "low": 1743
+  },
+  "top_banking_relevant": [
+    {
+      "id": 60833,
+      "title": "Global Merger-Arbitrage Forecasting with Language Models",
+      "score": 95,
+      "tier": "A - highest priority",
+      "direct_tags": [
+        "Markets, trading & treasury"
+      ],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "LLMs, retrieval & language"
+      ]
+    },
+    {
+      "id": 60786,
+      "title": "From Zero to Hero: Advancing Zero-Shot Foundation Models for Tabular Outlier Detection",
+      "score": 85,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Anomaly, OOD & rare events",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 61239,
+      "title": "Towards the Explainability of Temporal Graph Networks via Memory Backtracking and Topological Attribution",
+      "score": 84,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Time series & temporal modeling",
+        "Interpretability & explainability"
+      ]
+    },
+    {
+      "id": 62694,
+      "title": "Signature-Informed Transformer for Asset Allocation",
+      "score": 82,
+      "tier": "A - highest priority",
+      "direct_tags": [
+        "Markets, trading & treasury"
+      ],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Robustness, uncertainty & reliability",
+        "Optimization, decisions & reinforcement learning"
+      ]
+    },
+    {
+      "id": 64722,
+      "title": "Decision-focused Sparse Tangent Portfolio Optimization",
+      "score": 81,
+      "tier": "A - highest priority",
+      "direct_tags": [
+        "Markets, trading & treasury"
+      ],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Interpretability & explainability",
+        "Optimization, decisions & reinforcement learning"
+      ]
+    },
+    {
+      "id": 64775,
+      "title": "FIRE: Multi-fidelity Regression with Distribution-conditioned In-context Learning using Tabular Foundation Models",
+      "score": 80,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Robustness, uncertainty & reliability",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 62109,
+      "title": "When Tabular Foundation Models Meet Strategic Tabular Data: A Prior Alignment Approach",
+      "score": 80,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Anomaly, OOD & rare events",
+        "Robustness, uncertainty & reliability",
+        "Foundation models & representation learning"
+      ]
+    },
+    {
+      "id": 60604,
+      "title": "Towards Foundation Models for Zero-Shot Time Series Anomaly Detection: Leveraging Synthetic Data and Relative Context Discrepancy",
+      "score": 78,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Anomaly, OOD & rare events",
+        "Robustness, uncertainty & reliability",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 64871,
+      "title": "Is One Layer Enough? Understanding Inference Dynamics in Tabular Foundation Models",
+      "score": 78,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Foundation models & representation learning",
+        "LLMs, retrieval & language",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 65297,
+      "title": "MarketSim: Simulating Stock Markets with Large-Scale Generative Agents",
+      "score": 77,
+      "tier": "A - highest priority",
+      "direct_tags": [
+        "Markets, trading & treasury",
+        "Regulatory & document intelligence"
+      ],
+      "research_tags": [
+        "Agents, reasoning & tool use",
+        "LLMs, retrieval & language",
+        "Data quality, evaluation & synthetic data",
+        "Efficient ML & systems"
+      ]
+    },
+    {
+      "id": 67119,
+      "title": "Position: Beyond Prediction: Toward Verifiable Physiological Waveform Reasoning with Foundation Models and Agentic LLMs",
+      "score": 77,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Agents, reasoning & tool use",
+        "Causal & counterfactual learning",
+        "Robustness, uncertainty & reliability",
+        "Interpretability & explainability",
+        "Foundation models & representation learning",
+        "LLMs, retrieval & language"
+      ]
+    },
+    {
+      "id": 61320,
+      "title": "PluRel: Synthetic Data unlocks Scaling Laws for Relational Foundation Models",
+      "score": 77,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Causal & counterfactual learning",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 63874,
+      "title": "TabICooL: A better, faster, scalable, and open tabular foundation model",
+      "score": 76,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data",
+        "Efficient ML & systems"
+      ]
+    },
+    {
+      "id": 63879,
+      "title": "ST-TGExplainer: Disentangling Stability and Transition Patterns for Temporal GNN Interpretability",
+      "score": 76,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Time series & temporal modeling",
+        "Interpretability & explainability"
+      ]
+    },
+    {
+      "id": 63731,
+      "title": "Lightweight and Interpretable Transformer via Unrolling of Mixed Graph Algorithms for Traffic Forecast",
+      "score": 76,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Time series & temporal modeling",
+        "Interpretability & explainability"
+      ]
+    },
+    {
+      "id": 65502,
+      "title": "Learning the ESG Geometry with Domain Aware Language Models",
+      "score": 75,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Foundation models & representation learning",
+        "LLMs, retrieval & language"
+      ]
+    },
+    {
+      "id": 63281,
+      "title": "Robust Inter-Series Dependency Modeling for Time Series Forecasting via Information-Theoretic Alignment",
+      "score": 75,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Time series & temporal modeling",
+        "Robustness, uncertainty & reliability",
+        "Interpretability & explainability"
+      ]
+    },
+    {
+      "id": 62299,
+      "title": "No Need to Train Your RDB Foundation Model",
+      "score": 74,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Robustness, uncertainty & reliability",
+        "Foundation models & representation learning",
+        "Efficient ML & systems"
+      ]
+    },
+    {
+      "id": 63677,
+      "title": "StarEmbed: Benchmarking Time Series Foundation Models on Astronomical Observations of Variable Stars",
+      "score": 73,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Anomaly, OOD & rare events",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 61205,
+      "title": "Modeling Spectral Energy Shifts in Spatio-Temporal Graph Anomaly Detection",
+      "score": 73,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Time series & temporal modeling",
+        "Anomaly, OOD & rare events",
+        "Data quality, evaluation & synthetic data",
+        "Efficient ML & systems"
+      ]
+    },
+    {
+      "id": 65406,
+      "title": "Universal Redundancies in Time Series Foundation Models",
+      "score": 71,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Robustness, uncertainty & reliability",
+        "Interpretability & explainability",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 65994,
+      "title": "End-to-End Compression for Tabular Foundation Models",
+      "score": 71,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 61767,
+      "title": "Time-PEFT: Temporal and Multichannel Complexity-Based Fine-Tuning for Time-Series Foundation Models",
+      "score": 71,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Robustness, uncertainty & reliability",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 63251,
+      "title": "MiniX: Mitigating Low-Rank Collapse and Attention Bottlenecks in Tabular Foundation Models",
+      "score": 71,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 62523,
+      "title": "GOTabPFN: From Feature Ordering to Compact Tokenization for Tabular Foundation Models on High-Dimensional Data",
+      "score": 71,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 65946,
+      "title": "BizFinBench.v2: Towards Reliable LLMs in Finance via Real-User Data and Offline/Online Bilingual Evaluation",
+      "score": 70,
+      "tier": "A - highest priority",
+      "direct_tags": [],
+      "research_tags": [
+        "Robustness, uncertainty & reliability",
+        "LLMs, retrieval & language",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 63614,
+      "title": "End-to-end Graph-structured Brain Representation Learning",
+      "score": 69,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Time series & temporal modeling",
+        "Interpretability & explainability",
+        "Foundation models & representation learning"
+      ]
+    },
+    {
+      "id": 65652,
+      "title": "VFMF: Dense Forecasting by Generating Foundation Model Features",
+      "score": 68,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Robustness, uncertainty & reliability",
+        "Foundation models & representation learning",
+        "Efficient ML & systems"
+      ]
+    },
+    {
+      "id": 67138,
+      "title": "Position: Time-Series Foundation Models Require Explicit Domain-Level Benchmarks",
+      "score": 65,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Anomaly, OOD & rare events",
+        "Robustness, uncertainty & reliability",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data",
+        "AI for science & healthcare"
+      ]
+    },
+    {
+      "id": 62880,
+      "title": "Remove the Ambiguity: Few-shot Multimodal Anomaly Detection Using Crossmodal Feature Replacers",
+      "score": 65,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Anomaly, OOD & rare events",
+        "Robustness, uncertainty & reliability",
+        "Foundation models & representation learning",
+        "Multimodal & document intelligence"
+      ]
+    },
+    {
+      "id": 61560,
+      "title": "SwiftPFN: Revisiting Row-Wise Attention-Only Tabular Foundation Models with Adaptive Early Exit",
+      "score": 64,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Foundation models & representation learning"
+      ]
+    },
+    {
+      "id": 64438,
+      "title": "Words Towards Explainability: Caption Label-Free Learning via Dual Loop Agentic Time Series Captioning",
+      "score": 64,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Agents, reasoning & tool use",
+        "Robustness, uncertainty & reliability",
+        "Interpretability & explainability",
+        "LLMs, retrieval & language"
+      ]
+    },
+    {
+      "id": 60613,
+      "title": "When LLMs Encounter Open-world Graph Learning: A Fresh View on Unlabeled Data Uncertainty",
+      "score": 64,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Anomaly, OOD & rare events",
+        "Robustness, uncertainty & reliability",
+        "LLMs, retrieval & language",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 63840,
+      "title": "WatchLog: Efficient and Interpretable Event Reasoning for Endpoint Detection and Response Logs with Multimodal LLMs",
+      "score": 64,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Robustness, uncertainty & reliability",
+        "Interpretability & explainability",
+        "Foundation models & representation learning",
+        "LLMs, retrieval & language",
+        "Multimodal & document intelligence",
+        "Data quality, evaluation & synthetic data",
+        "Efficient ML & systems"
+      ]
+    },
+    {
+      "id": 63975,
+      "title": "Self-Supervised Foundation Model for Calcium-imaging Population Dynamics",
+      "score": 64,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Interpretability & explainability",
+        "Foundation models & representation learning",
+        "Efficient ML & systems"
+      ]
+    },
+    {
+      "id": 64366,
+      "title": "Channel Adapter for Time Series Foundation Models in Zero-Shot Multivariate Forecasting",
+      "score": 64,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data",
+        "Efficient ML & systems"
+      ]
+    },
+    {
+      "id": 62385,
+      "title": "BOCLOAK: Optimal Transport-Guided Adversarial Attacks on Graph Neural Network-Based Bot Detection",
+      "score": 64,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Time series & temporal modeling",
+        "Privacy, federated learning & security",
+        "Robustness, uncertainty & reliability"
+      ]
+    },
+    {
+      "id": 65944,
+      "title": "Bootstrapped Exploration with Causal Reasoning: A Training Paradigm for Adaptive Forecasting Agent",
+      "score": 63,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Causal & counterfactual learning",
+        "Anomaly, OOD & rare events",
+        "LLMs, retrieval & language"
+      ]
+    },
+    {
+      "id": 64358,
+      "title": "Toward Effective Multimodal Graph Foundation Model: A Divide-and-Conquer Based Approach",
+      "score": 63,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Foundation models & representation learning",
+        "Multimodal & document intelligence"
+      ]
+    },
+    {
+      "id": 62731,
+      "title": "Graph is a Natural Regularization: Revisiting Vector Quantization for Graph Representation Learning",
+      "score": 63,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Tabular & structured data",
+        "Foundation models & representation learning",
+        "Efficient ML & systems"
+      ]
+    },
+    {
+      "id": 62451,
+      "title": "Entangled No More: Multi-Domain Decoupling for Robust Dynamic Graph Neural Networks",
+      "score": 63,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Time series & temporal modeling",
+        "Privacy, federated learning & security",
+        "Robustness, uncertainty & reliability",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 65499,
+      "title": "X-EviProbe: Post-hoc Parameter-free Evidential Uncertainty Quantification for Frozen Graph Neural Networks",
+      "score": 62,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Anomaly, OOD & rare events",
+        "Robustness, uncertainty & reliability",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 61098,
+      "title": "TsLLM: Augmenting LLMs for General Time Series Understanding and Prediction",
+      "score": 61,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Anomaly, OOD & rare events",
+        "Foundation models & representation learning",
+        "LLMs, retrieval & language",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 64714,
+      "title": "Causal Detection of Multi-Step LLM Agent Attacks",
+      "score": 61,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Agents, reasoning & tool use",
+        "Causal & counterfactual learning",
+        "Interpretability & explainability",
+        "LLMs, retrieval & language",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 64969,
+      "title": "AnomSeer: Reinforcing Multimodal LLMs to Reason for Time-Series Anomaly Detection",
+      "score": 61,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Anomaly, OOD & rare events",
+        "LLMs, retrieval & language",
+        "Multimodal & document intelligence",
+        "Optimization, decisions & reinforcement learning"
+      ]
+    },
+    {
+      "id": 62540,
+      "title": "Decomposition-Based Modular Conformal Prediction for Two-Stage Modeling",
+      "score": 60,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [
+        "Markets, trading & treasury"
+      ],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Anomaly, OOD & rare events",
+        "Robustness, uncertainty & reliability"
+      ]
+    },
+    {
+      "id": 65791,
+      "title": "MASPOB: Bandit-Based Prompt Optimization for Multi-Agent Systems with Graph Neural Networks",
+      "score": 60,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Knowledge graphs & graph learning",
+        "Agents, reasoning & tool use",
+        "Robustness, uncertainty & reliability",
+        "LLMs, retrieval & language",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 66460,
+      "title": "TopBench: A Benchmark for Implicit Prediction and Reasoning over Tabular Question Answering",
+      "score": 60,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Tabular & structured data",
+        "Agents, reasoning & tool use",
+        "Causal & counterfactual learning",
+        "Robustness, uncertainty & reliability",
+        "LLMs, retrieval & language",
+        "Optimization, decisions & reinforcement learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 65289,
+      "title": "Olivia: Harmonizing Time Series Foundation Models with Power Spectral Density",
+      "score": 60,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    },
+    {
+      "id": 62438,
+      "title": "Mantis: Lightweight Foundation Model for Time Series Classification",
+      "score": 60,
+      "tier": "B - strong transfer potential",
+      "direct_tags": [],
+      "research_tags": [
+        "Time series & temporal modeling",
+        "Foundation models & representation learning",
+        "Data quality, evaluation & synthetic data"
+      ]
+    }
+  ]
+}

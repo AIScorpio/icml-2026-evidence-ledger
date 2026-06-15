@@ -1,0 +1,27 @@
+{
+  "name": "icml-2026-evidence-ledger",
+  "version": "1.0.0",
+  "description": "Interactive ICML 2026 research catalogue with AI and banking evidence triage.",
+  "private": true,
+  "type": "module",
+  "homepage": "https://aiscorpio.github.io/icml-2026-evidence-ledger/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AIScorpio/icml-2026-evidence-ledger.git"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "build:standalone": "npm run build && node inline-build.mjs && python3 verify_standalone.py docs/index.html",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.3.1",
+    "@vitejs/plugin-react": "5.0.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "vite": "6.4.2"
+  }
+}
