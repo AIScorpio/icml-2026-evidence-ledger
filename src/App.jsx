@@ -148,6 +148,22 @@ function confidenceValue(confidence) {
   return { high: 3, medium: 2, low: 1 }[confidence] || 0;
 }
 
+function uniqueItems(items) {
+  return [...new Set(items.filter(Boolean))];
+}
+
+function sharedItems(papers, accessor) {
+  if (!papers.length) return [];
+  return uniqueItems(accessor(papers[0])).filter((item) =>
+    papers.every((paper) => accessor(paper).includes(item)),
+  );
+}
+
+function uniqueToPaper(paper, peers, accessor) {
+  const peerItems = new Set(peers.flatMap((peer) => accessor(peer)));
+  return uniqueItems(accessor(paper)).filter((item) => !peerItems.has(item));
+}
+
 function tierLabel(paper) {
   if (paper.relevance_tier.startsWith("A -")) {
     return paper.banking_tags_direct.length
@@ -163,6 +179,53 @@ function countTags(papers, accessor) {
     accessor(paper).forEach((tag) => counts.set(tag, (counts.get(tag) || 0) + 1));
   });
   return counts;
+}
+
+function bankingTags(paper) {
+  return uniqueItems([
+    ...paper.banking_tags_direct,
+    ...paper.banking_tags_inferred,
+  ]);
+}
+
+function evidenceTerms(paper) {
+  return uniqueItems(
+    Object.values(paper.classification_evidence.research || {}).flat(),
+  );
+}
+
+function validationQuestions(paper) {
+  const questions = [];
+  if (!paper.banking_tags_direct.length) {
+    questions.push("What banking dataset or control setting would validate this transfer?");
+  }
+  if (paper.research_tags.some((tag) => tag.includes("Tabular"))) {
+    questions.push("Does the evaluation cover messy tabular data, missingness, and schema drift?");
+  }
+  if (
+    paper.research_tags.some(
+      (tag) => tag.includes("Time series") || tag.includes("Anomaly"),
+    )
+  ) {
+    questions.push("How does it handle delayed labels, rare events, and distribution shift?");
+  }
+  if (paper.research_tags.some((tag) => tag.includes("graph"))) {
+    questions.push("Can the method scale to changing entity and transaction networks?");
+  }
+  if (
+    paper.research_tags.some(
+      (tag) => tag.includes("Interpretability") || tag.includes("Robustness"),
+    )
+  ) {
+    questions.push("Is the explanation stable enough for review, challenge, and governance?");
+  }
+  if (paper.research_tags.some((tag) => tag.includes("Agents"))) {
+    questions.push("What guardrails keep the agent traceable, bounded, and reviewable?");
+  }
+  if (!questions.length) {
+    questions.push("What external-validity evidence is missing before a banking pilot?");
+  }
+  return questions.slice(0, 3);
 }
 
 function downloadFile(filename, content, type) {
@@ -696,10 +759,46 @@ function ComparisonTray({
   sectionRef,
 }) {
   if (!papers.length) return null;
-  const questions = [
-    "How do the methods differ in assumptions, supervision, and computational cost?",
-    "Which evaluation settings are closest to transaction, customer, or control data?",
-    "What evidence is still missing before a banking pilot or model-risk review?",
+  const sharedResearch = sharedItems(papers, (paper) => paper.research_tags);
+  const sharedBanking = sharedItems(papers, bankingTags);
+  const sharedEvidenceTerms = sharedItems(papers, evidenceTerms).slice(0, 8);
+  const rows = [
+    {
+      label: "Method focus",
+      render: (paper) => paper.research_tags.slice(0, 3).join(" · ") || "General ML",
+    },
+    {
+      label: "Unique method signal",
+      render: (paper) =>
+        uniqueToPaper(
+          paper,
+          papers.filter((peer) => peer.id !== paper.id),
+          (item) => item.research_tags,
+        )
+          .slice(0, 3)
+          .join(" · ") || "Shared with selected papers",
+    },
+    {
+      label: "Banking fit",
+      render: (paper) => bankingTags(paper).slice(0, 3).join(" · ") || "No material signal",
+    },
+    {
+      label: "Evidence type",
+      render: (paper) =>
+        paper.banking_tags_direct.length
+          ? `Direct source-text signal: ${paper.banking_tags_direct.join(" · ")}`
+          : "Transfer hypothesis only",
+    },
+    {
+      label: "Relevance",
+      render: (paper) =>
+        `${paper.banking_relevance_score}/100 · ${tierLabel(paper)} · ${paper.classification_confidence} confidence`,
+    },
+    {
+      label: "Source",
+      render: (paper) =>
+        `${sourceType(paper)} · ${paper.presentations.join(" + ")} · ICML ${paper.id}`,
+    },
   ];
   return (
     <section
@@ -710,7 +809,7 @@ function ComparisonTray({
     >
       <div className="comparison-header">
         <span>
-          Comparison tray <strong>({papers.length} papers)</strong>
+          Comparison workspace <strong>({papers.length} papers)</strong>
         </span>
         <button type="button" onClick={onToggle}>
           {collapsed ? "Expand" : "Collapse"}
@@ -719,47 +818,99 @@ function ComparisonTray({
       </div>
       {!collapsed ? (
         <div className="comparison-content">
-          <div className="compare-cards">
-            {papers.map((paper, index) => (
-              <article className="compare-card" key={paper.id}>
-                <span className="compare-number">{index + 1}</span>
-                <button
-                  type="button"
-                  className="compare-remove"
-                  onClick={() => onRemove(paper.id)}
-                  aria-label={`Remove ${paper.title} from comparison`}
-                >
-                  <FontAwesomeIcon icon={faXmark} />
-                </button>
-                <h3>{paper.title}</h3>
-                <dl>
-                  <dt>Method</dt>
-                  <dd>{paper.research_tags[0] || "General ML"}</dd>
-                  <dt>Banking fit</dt>
-                  <dd>
-                    {paper.banking_tags_direct[0] ||
-                      paper.banking_tags_inferred[0] ||
-                      "No material signal"}
-                  </dd>
-                  <dt>Evidence</dt>
-                  <dd>{paper.classification_confidence}</dd>
-                  <dt>Relevance</dt>
-                  <dd>{paper.banking_relevance_score}/100</dd>
-                </dl>
-                <button type="button" className="text-button" onClick={() => onOpen(paper.id)}>
-                  View full evidence
-                </button>
-              </article>
-            ))}
-          </div>
-          <div className="research-questions">
-            <h3>Research questions</h3>
-            {questions.map((question, index) => (
-              <div key={question}>
-                <span>{index + 1}</span>
-                <p>{question}</p>
+          <div className="compare-main">
+            <div className="compare-cards">
+              {papers.map((paper, index) => (
+                <article className="compare-card" key={paper.id}>
+                  <span className="compare-number">{index + 1}</span>
+                  <button
+                    type="button"
+                    className="compare-remove"
+                    onClick={() => onRemove(paper.id)}
+                    aria-label={`Remove ${paper.title} from comparison`}
+                  >
+                    <FontAwesomeIcon icon={faXmark} />
+                  </button>
+                  <h3>{paper.title}</h3>
+                  <dl>
+                    <dt>Method</dt>
+                    <dd>{paper.research_tags[0] || "General ML"}</dd>
+                    <dt>Banking fit</dt>
+                    <dd>{bankingTags(paper)[0] || "No material signal"}</dd>
+                    <dt>Evidence</dt>
+                    <dd>
+                      {paper.banking_tags_direct.length ? "direct" : "transfer"} ·{" "}
+                      {paper.classification_confidence}
+                    </dd>
+                    <dt>Relevance</dt>
+                    <dd>{paper.banking_relevance_score}/100</dd>
+                  </dl>
+                  <button type="button" className="text-button" onClick={() => onOpen(paper.id)}>
+                    View full evidence
+                  </button>
+                </article>
+              ))}
+            </div>
+            <div className="comparison-matrix" role="table" aria-label="Paper comparison matrix">
+              <div
+                className="matrix-row matrix-head"
+                role="row"
+                style={{ gridTemplateColumns: `150px repeat(${papers.length}, minmax(180px, 1fr))` }}
+              >
+                <div role="columnheader">Compare</div>
+                {papers.map((paper, index) => (
+                  <div role="columnheader" key={paper.id}>
+                    <span>{index + 1}</span>
+                    {paper.title}
+                  </div>
+                ))}
               </div>
-            ))}
+              {rows.map((row) => (
+                <div
+                  className="matrix-row"
+                  role="row"
+                  key={row.label}
+                  style={{ gridTemplateColumns: `150px repeat(${papers.length}, minmax(180px, 1fr))` }}
+                >
+                  <div className="matrix-label" role="rowheader">
+                    {row.label}
+                  </div>
+                  {papers.map((paper) => (
+                    <div role="cell" key={paper.id}>
+                      {row.render(paper)}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="comparison-insights">
+            <section>
+              <h3>Shared signals</h3>
+              <dl>
+                <dt>Methods</dt>
+                <dd>{sharedResearch.slice(0, 4).join(" · ") || "No shared method tag"}</dd>
+                <dt>Banking fit</dt>
+                <dd>{sharedBanking.slice(0, 4).join(" · ") || "No shared banking tag"}</dd>
+                <dt>Evidence terms</dt>
+                <dd>{sharedEvidenceTerms.join(", ") || "No shared evidence term"}</dd>
+              </dl>
+            </section>
+            <section>
+              <h3>Validation questions</h3>
+              {papers.map((paper, paperIndex) => (
+                <div className="paper-questions" key={paper.id}>
+                  <strong>
+                    {paperIndex + 1}. {paper.title}
+                  </strong>
+                  <ol>
+                    {validationQuestions(paper).map((question) => (
+                      <li key={question}>{question}</li>
+                    ))}
+                  </ol>
+                </div>
+              ))}
+            </section>
           </div>
         </div>
       ) : null}

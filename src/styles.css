@@ -1169,7 +1169,7 @@ input[type="checkbox"] {
   right: 0;
   bottom: 0;
   left: 176px;
-  max-height: 222px;
+  max-height: min(58vh, 520px);
   overflow: auto;
   border-top: 1px solid var(--line-dark);
   border-bottom: 1px solid var(--line-dark);
@@ -1208,8 +1208,13 @@ input[type="checkbox"] {
 
 .comparison-content {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
-  min-height: 174px;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  min-height: 280px;
+}
+
+.compare-main {
+  min-width: 0;
+  border-right: 1px solid var(--line-dark);
 }
 
 .compare-cards {
@@ -1217,7 +1222,7 @@ input[type="checkbox"] {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   padding: 10px;
-  border-right: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line);
 }
 
 .compare-card {
@@ -1285,39 +1290,103 @@ input[type="checkbox"] {
   font-size: 8px;
 }
 
-.research-questions {
+.comparison-matrix {
+  min-width: 720px;
+  padding: 0 10px 10px;
+  font-size: 9px;
+}
+
+.matrix-row {
+  display: grid;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.matrix-row > div {
+  min-width: 0;
+  padding: 8px;
+  border-left: 1px solid var(--line);
+  line-height: 1.35;
+}
+
+.matrix-head {
+  position: sticky;
+  top: 34px;
+  z-index: 2;
+  border-top: 1px solid var(--line);
+  background: #f6f8fa;
+  font-weight: 800;
+}
+
+.matrix-head span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  background: var(--cobalt);
+  color: #fff;
+  font-size: 8px;
+}
+
+.matrix-label {
+  color: var(--muted);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.comparison-insights {
   padding: 12px 14px;
   background: #fff;
 }
 
-.research-questions h3 {
+.comparison-insights h3 {
   margin: 0 0 10px;
   font-size: 9px;
   text-transform: uppercase;
 }
 
-.research-questions > div {
+.comparison-insights dl {
   display: grid;
-  grid-template-columns: 18px 1fr;
-  gap: 8px;
-  margin-bottom: 8px;
+  grid-template-columns: 86px 1fr;
+  gap: 7px 10px;
+  margin: 0 0 14px;
+  font-size: 9px;
+  line-height: 1.35;
 }
 
-.research-questions > div span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 17px;
-  height: 17px;
-  border: 1px solid var(--line-dark);
-  font-size: 8px;
+.comparison-insights dt {
+  color: var(--muted);
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
-.research-questions p {
+.comparison-insights dd {
   margin: 0;
-  color: #4f5a65;
-  font-size: 8px;
-  line-height: 1.45;
+}
+
+.paper-questions {
+  margin-bottom: 12px;
+  font-size: 9px;
+}
+
+.paper-questions strong {
+  display: block;
+  margin-bottom: 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  line-height: 1.25;
+}
+
+.paper-questions ol {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.paper-questions li {
+  margin-bottom: 5px;
+  line-height: 1.35;
 }
 
 footer {
@@ -1691,13 +1760,20 @@ footer {
   .comparison-tray,
   .workspace.filters-collapsed .comparison-tray {
     left: 0;
-    max-height: 250px;
+    max-height: 70vh;
   }
 
   .compare-cards {
     grid-template-columns: 1fr;
-    border-right: 0;
     border-bottom: 1px solid var(--line);
+  }
+
+  .compare-main {
+    border-right: 0;
+  }
+
+  .comparison-matrix {
+    overflow-x: auto;
   }
 }
 
